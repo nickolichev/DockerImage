@@ -1,6 +1,6 @@
-FROM node:erbium-alpine3.12
-WORKDIR /opt/app
-COPY . .
-RUN npm install
-CMD ["npm", "start"]
+FROM openjdk:8-slim
+WORKDIR /app
+COPY db-api-for-docker.jar .
+#RUN apt-get update -y openjdk-8-jre
+CMD ["java", "-jar", "db-api-for-docker.jar"]
 EXPOSE 9999
